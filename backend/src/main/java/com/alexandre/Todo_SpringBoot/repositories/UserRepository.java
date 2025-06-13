@@ -1,6 +1,7 @@
 package com.alexandre.Todo_SpringBoot.repositories;
 
 import com.alexandre.Todo_SpringBoot.entities.User;
+import com.alexandre.Todo_SpringBoot.enums.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -13,4 +14,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 
     Optional<Object> findFirstByEmail(String username);
+
+    Optional<User> findByUserRole(UserRole admin);
 }
